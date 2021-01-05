@@ -31,3 +31,5 @@ C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.csproj.CoreCompileIn
 C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.csproj.CopyComplete
 C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.exe
 C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.pdb
+C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.prreg.resources
+C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.registracija.resources

@@ -42,5 +42,11 @@ namespace lekarne
            
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            prreg pr = new prreg();
+            pr.Show();
+            this.Hide();
+        }
     }
 }
