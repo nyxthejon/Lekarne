@@ -10,23 +10,59 @@ namespace lekarne
 {
     class baza
     {
-            public static string connect()
-            {
-                var url = ConfigurationManager.AppSettings["ELEPHANTSQL_URL"] ?? "postgres://smqoixml:8IjKrAiAC94QogfYNNA1L7SCCQ6dHoYL@dumbo.db.elephantsql.com:5432/smqoixml";
-                var uri = new Uri(url);
-                var db = uri.AbsolutePath.Trim('/');
-                var user = uri.UserInfo.Split(':')[0];
-                var passwd = uri.UserInfo.Split(':')[1];
-                var port = uri.Port > 0 ? uri.Port : 5432;
+        public static string connect()
+        {
+            var url = ConfigurationManager.AppSettings["ELEPHANTSQL_URL"] ?? "postgres://smqoixml:8IjKrAiAC94QogfYNNA1L7SCCQ6dHoYL@dumbo.db.elephantsql.com:5432/smqoixml";
+            var uri = new Uri(url);
+            var db = uri.AbsolutePath.Trim('/');
+            var user = uri.UserInfo.Split(':')[0];
+            var passwd = uri.UserInfo.Split(':')[1];
+            var port = uri.Port > 0 ? uri.Port : 5432;
 
-                var connStr = string.Format("Server={0};Database={1};User Id={2};Password={3};Port={4}",
-                    uri.Host, db, user, passwd, port);
+            var connStr = string.Format("Server={0};Database={1};User Id={2};Password={3};Port={4}",
+                uri.Host, db, user, passwd, port);
             return connStr;
 
-                
 
+
+        }
+
+        public static bool registracija(string email, string geslo, string ime, string tel, string kraj)
+        {
+            string connection = connect();
+
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT registracija('" + email + "','" + geslo + "','" + ime + "','" + tel + "','" + kraj + "');", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                bool prev = reader.GetBoolean(0);
+               
+                con.Close();
+                return prev;
             }
-        
-    }
+            
 
+        }
+        public static bool prijava(string email,string pass)
+        {
+            bool prev;
+            string connection = connect();
+            using(NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT pri('" + email + "','" + pass + "');", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                prev = reader.GetBoolean(0);
+
+                con.Close();
+            }
+            return prev;
+        }
+
+
+
+    }
 }

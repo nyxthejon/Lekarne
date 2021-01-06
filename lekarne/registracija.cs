@@ -43,30 +43,29 @@ namespace lekarne
         private void regbut_Click(object sender, EventArgs e)
         {
             string[] k = comboBox1.SelectedItem.ToString().Split('|');
+            string kraj = k[0];
             string email = mailtext.Text;
             string ime = imetext.Text;
             string geslo = geslotext.Text;
             string tel = telefontext.Text;
-            using (NpgsqlConnection con = new NpgsqlConnection(connect))
+            bool prev = baza.registracija(email, geslo, ime, tel, kraj);
+            switch(prev)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT registracija('" + email + "','" + geslo + "','" +  ime + "','" + tel + "','" + k[0] + "');", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                reader.Read();
-                bool prev = reader.GetBoolean(0);
-                switch(prev)
-                {
                     case true:
                         MessageBox.Show("Uspešno");
+                        this.Close();
                         break;
                     case false:
                         MessageBox.Show("Ni uspešno");
+                    comboBox1.SelectedIndex = 0;
+                    mailtext.Text = "";
+                    imetext.Text = "";
+                    geslotext.Text = "";
+                    telefontext.Text = "";
                         break;
-                }
-                con.Close();
-
-
             }
+
+            
         }
 
         private void registracija_Load(object sender, EventArgs e)

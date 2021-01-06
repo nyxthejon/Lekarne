@@ -28,5 +28,26 @@ namespace lekarne
             reg.Show();
            
         }
+
+        private void pributton_Click(object sender, EventArgs e)
+        {
+            string email = emailtext.Text;
+            string pass = passtext.Text;
+            bool prev = baza.prijava(email, pass);
+            switch(prev)
+            {
+                case true:
+                    MessageBox.Show("Uspešna prijava");
+                    this.Hide();
+                    profil profi = new profil();
+                    profi.Show();
+                    break;
+                case false:
+                    MessageBox.Show("Prijava neuspešna");
+                    emailtext.Text = "";
+                    passtext.Text = "";
+                    break;
+            }
+        }
     }
 }

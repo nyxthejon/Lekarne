@@ -71,6 +71,7 @@
             this.pributton.TabIndex = 3;
             this.pributton.Text = "Prijava";
             this.pributton.UseVisualStyleBackColor = true;
+            this.pributton.Click += new System.EventHandler(this.pributton_Click);
             // 
             // regbutton
             // 
