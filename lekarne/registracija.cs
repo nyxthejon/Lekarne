@@ -24,20 +24,10 @@ namespace lekarne
 
         public void kraji()
         {
-            using (NpgsqlConnection con = new NpgsqlConnection(connect))
+            List<string> krajizp = baza.kraji();
+            foreach(string x in krajizp)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM krajizpis();", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while(reader.Read())
-                {
-                    string skp = reader.GetString(0) + "|" + reader.GetString(1);
-                    comboBox1.Items.Add(skp);
-                
-                }
-                con.Close();
-
-              
+                comboBox1.Items.Add(x);
             }
         }
         private void regbut_Click(object sender, EventArgs e)
@@ -72,5 +62,7 @@ namespace lekarne
         {
 
         }
+
+       
     }
 }

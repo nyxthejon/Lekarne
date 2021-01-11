@@ -16,5 +16,12 @@ namespace lekarne
         {
             InitializeComponent();
         }
+
+        private void dodlekarnebutton_Click(object sender, EventArgs e)
+        {
+            dodlekarne dod = new dodlekarne();
+            dod.Show();
+
+        }
     }
 }

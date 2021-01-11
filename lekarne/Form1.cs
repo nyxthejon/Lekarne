@@ -33,6 +33,7 @@ namespace lekarne
                     string k = reader.GetString(1);
                     string p = reader.GetString(2);
                     listBox1.Items.Add(k);
+                   
                     listBox1.Items.Add(p);
                 }
                  

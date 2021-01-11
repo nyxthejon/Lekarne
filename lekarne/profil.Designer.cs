@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dodlekarnebutton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // dodlekarnebutton
+            // 
+            this.dodlekarnebutton.Location = new System.Drawing.Point(193, 433);
+            this.dodlekarnebutton.Name = "dodlekarnebutton";
+            this.dodlekarnebutton.Size = new System.Drawing.Size(392, 89);
+            this.dodlekarnebutton.TabIndex = 0;
+            this.dodlekarnebutton.Text = "Dodaj novo lekarno";
+            this.dodlekarnebutton.UseVisualStyleBackColor = true;
+            this.dodlekarnebutton.Click += new System.EventHandler(this.dodlekarnebutton_Click);
+            // 
+            // profil
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(824, 621);
+            this.Controls.Add(this.dodlekarnebutton);
+            this.Name = "profil";
             this.Text = "profil";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button dodlekarnebutton;
     }
 }

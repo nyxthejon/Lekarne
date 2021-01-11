@@ -27,6 +27,26 @@ namespace lekarne
 
         }
 
+        public static List<string> kraji()
+        {
+            string connection = connect();
+            List<string> krajiizpis = new List<string>();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM krajizpis();", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    string skp = reader.GetString(0) + "|" + reader.GetString(1);
+                    krajiizpis.Add(skp);
+
+                }
+                con.Close();
+                return krajiizpis;
+
+            }
+        }
         public static bool registracija(string email, string geslo, string ime, string tel, string kraj)
         {
             string connection = connect();
@@ -44,6 +64,24 @@ namespace lekarne
             }
             
 
+        }
+
+        public static bool vnoslekarne(string ime,string tel,string dcas,string naslov,string kraj,string pot,string opis)
+        {
+            bool ok;
+            string connection = connect();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT vnoslekarne('" + ime + "','" + tel + "','" + dcas + "','" + naslov + "','" + kraj + "','" + pot + "','" + opis + "');",con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                ok = reader.GetBoolean(0);
+                con.Close();
+                return ok;
+            }
+
+               
         }
         public static bool prijava(string email,string pass)
         {
