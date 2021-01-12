@@ -94,6 +94,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="OgledLekarne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OgledLekarne.Designer.cs">
+      <DependentUpon>OgledLekarne.cs</DependentUpon>
+    </Compile>
     <Compile Include="profil.cs">
       <SubType>Form</SubType>
     </Compile>

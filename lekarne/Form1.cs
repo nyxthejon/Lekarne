@@ -17,6 +17,7 @@ namespace lekarne
         public Form1()
         {
             InitializeComponent();
+            polnjenje();
             lol();
         }
 
@@ -42,12 +43,38 @@ namespace lekarne
 
            
         }
+        
+        public void polnjenje()
+        {
+            using(NpgsqlConnection con = new NpgsqlConnection(connect))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kratizpislekarn()", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while(reader.Read())
+                {
+                    dataGridView1.Rows.Add(new object[] {reader.GetString(1),reader.GetString(2),reader.GetString(3),reader.GetString(4),reader.GetString(5),"Oglej Si Več"});
+                    oglej.Name = reader.GetInt32(0).ToString();
+                }
+                con.Close();
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             prreg pr = new prreg();
             pr.Show();
             this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if(e.ColumnIndex == 5)
+            {
+               
+
+            }
         }
     }
 }

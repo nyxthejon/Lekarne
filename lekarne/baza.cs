@@ -27,6 +27,8 @@ namespace lekarne
 
         }
 
+       
+
         public static List<string> kraji()
         {
             string connection = connect();

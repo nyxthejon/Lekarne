@@ -23,5 +23,10 @@ namespace lekarne
             dod.Show();
 
         }
+
+        private void izblekbutton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
