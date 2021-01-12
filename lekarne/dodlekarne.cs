@@ -73,7 +73,7 @@ namespace lekarne
                     string filename = lol[fin];
                     fileend = fileend + "\\" + filename;
                     System.IO.File.Copy(filepath, fileend, true);
-                    slikabutton.Text = filename;
+                    slikabutton.Text = fileend;
 
                 }
                 catch (Exception ex)

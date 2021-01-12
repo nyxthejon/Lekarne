@@ -126,6 +126,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OgledLekarne.resx">
+      <DependentUpon>OgledLekarne.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="profil.resx">
       <DependentUpon>profil.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +160,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="slike\celjske-lekarne-november-2014-2-800x445.jpg" />
+    <Content Include="slike\KJ10020.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
