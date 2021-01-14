@@ -130,6 +130,30 @@ namespace lekarne
             return prev;
         }
 
+        public static string updatelekarne(int id,string lime,string tel,string dcas,string nas,string kraj,string pot,string op)
+        {
+            string ret = "";
+            string connection = connect();
+            using(NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                try
+                {
+                    ret = "Posodobitev je bila uspešna";
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT updatelekarne(" + id +",'" + lime + "','" + tel + "','" + dcas + "','" + nas + "','" + kraj + "','" + pot + "','" + op + "');",con);
+                    com.ExecuteNonQuery();
+                    
+                }
+                catch (Exception ex)
+                {
+                    ret = "Prišlo je do napake " + ex.ToString();
+                    throw;
+                }
+                
+                con.Close();
+                return ret;
+            }
+        }     
 
 
     }
