@@ -37,6 +37,7 @@
             this.nas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kraj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oglej = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,11 +69,12 @@
             this.dcas,
             this.nas,
             this.kraj,
-            this.oglej});
+            this.oglej,
+            this.delete});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.Location = new System.Drawing.Point(41, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(645, 493);
+            this.dataGridView1.Size = new System.Drawing.Size(759, 493);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -108,6 +110,11 @@
             this.oglej.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.oglej.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // delete
+            // 
+            this.delete.HeaderText = "Delete";
+            this.delete.Name = "delete";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,6 +141,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nas;
         private System.Windows.Forms.DataGridViewTextBoxColumn kraj;
         private System.Windows.Forms.DataGridViewButtonColumn oglej;
+        private System.Windows.Forms.DataGridViewButtonColumn delete;
     }
 }
 

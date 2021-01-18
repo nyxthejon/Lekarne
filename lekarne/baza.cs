@@ -155,6 +155,19 @@ namespace lekarne
             }
         }     
 
+        public static void deletelekarno(int idl)
+        {
+            string connection = connect();
+            using(NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT deletelekarno(" + idl + ");", con);
+                com.ExecuteNonQuery();
+
+                
+                con.Close();
+            }
+        }
 
     }
 }

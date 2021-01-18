@@ -53,7 +53,7 @@ namespace lekarne
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while(reader.Read())
                 {
-                    dataGridView1.Rows.Add(new object[] {reader.GetString(1),reader.GetString(2),reader.GetString(3),reader.GetString(4),reader.GetString(5),"Oglej" + " " + reader.GetInt32(0)});
+                    dataGridView1.Rows.Add(new object[] {reader.GetString(1),reader.GetString(2),reader.GetString(3),reader.GetString(4),reader.GetString(5),"Oglej" + " " + reader.GetInt32(0),"Delete " + reader.GetInt32(0) });
                  
                 }
                 con.Close();
@@ -77,6 +77,18 @@ namespace lekarne
                 int id = Convert.ToInt32(lol[1]);
                 OgledLekarne ogl = new OgledLekarne(id);
                 ogl.Show();
+            }
+            if (e.ColumnIndex == 6)
+            {
+                string val = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                string[] lol = val.Split(' ');
+                int id = Convert.ToInt32(lol[1]);
+                baza.deletelekarno(id);
+
+                // majhaps prozilec
+                dataGridView1.Rows.Clear();
+                dataGridView1.Refresh();
+                polnjenje();
             }
         }
     }
