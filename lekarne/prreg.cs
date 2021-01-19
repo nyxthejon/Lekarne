@@ -49,5 +49,11 @@ namespace lekarne
                     break;
             }
         }
+
+        private void pozb_Click(object sender, EventArgs e)
+        {
+            pozabljenogeslo poz = new pozabljenogeslo();
+            poz.Show();
+        }
     }
 }

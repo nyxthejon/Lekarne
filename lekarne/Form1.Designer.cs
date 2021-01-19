@@ -44,9 +44,9 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(896, 81);
+            this.listBox1.Location = new System.Drawing.Point(854, 81);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(98, 186);
+            this.listBox1.Size = new System.Drawing.Size(163, 238);
             this.listBox1.TabIndex = 0;
             // 
             // button1
@@ -74,7 +74,7 @@
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.Location = new System.Drawing.Point(41, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(759, 493);
+            this.dataGridView1.Size = new System.Drawing.Size(746, 493);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 

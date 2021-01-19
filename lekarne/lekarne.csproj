@@ -100,6 +100,12 @@
     <Compile Include="OgledLekarne.Designer.cs">
       <DependentUpon>OgledLekarne.cs</DependentUpon>
     </Compile>
+    <Compile Include="pozabljenogeslo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pozabljenogeslo.Designer.cs">
+      <DependentUpon>pozabljenogeslo.cs</DependentUpon>
+    </Compile>
     <Compile Include="profil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OgledLekarne.resx">
       <DependentUpon>OgledLekarne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pozabljenogeslo.resx">
+      <DependentUpon>pozabljenogeslo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="profil.resx">
       <DependentUpon>profil.cs</DependentUpon>

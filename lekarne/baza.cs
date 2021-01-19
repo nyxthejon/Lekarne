@@ -169,5 +169,37 @@ namespace lekarne
             }
         }
 
+        public static bool checkmail(string mail)
+        {
+            string connection = connect();
+            bool ok;
+            using(NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT prevmail('" + mail + "');", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                ok = reader.GetBoolean(0);
+                con.Close();
+                
+            }
+            return ok;
+        }
+
+        public static void zamenjajgeslo(string mail,string geslo)
+        {
+            string connection = connect();
+            
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT zamgeslo('" + mail + "','" + geslo + "');", con);
+                com.ExecuteNonQuery();
+                con.Close();
+
+            }
+           
+        }
+
     }
 }
