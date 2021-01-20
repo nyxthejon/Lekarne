@@ -24,21 +24,11 @@ namespace lekarne
         string connect = baza.connect();
         public  void lol()
         {
-            using (NpgsqlConnection con = new NpgsqlConnection(connect))
+            listBox1.Items.Clear();
+            List<string> kra = baza.kraji();
+            foreach(string x in kra)
             {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kraji", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while(reader.Read())
-                {
-                    string k = reader.GetString(1);
-                    string p = reader.GetString(2);
-                    listBox1.Items.Add(k);
-                   
-                    listBox1.Items.Add(p);
-                }
-                 
-                con.Close();
+                listBox1.Items.Add(x);
             }
 
            
@@ -46,7 +36,9 @@ namespace lekarne
         
         public void polnjenje()
         {
-            using(NpgsqlConnection con = new NpgsqlConnection(connect))
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            using (NpgsqlConnection con = new NpgsqlConnection(connect))
             {
                 con.Open();
                 NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kratizpislekarn()", con);
@@ -86,10 +78,77 @@ namespace lekarne
                 baza.deletelekarno(id);
 
                 // majhaps prozilec
-                dataGridView1.Rows.Clear();
-                dataGridView1.Refresh();
+               
                 polnjenje();
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updkraj.Visible = true;
+            delkraj.Visible = true;
+            string[] sp = listBox1.SelectedItem.ToString().Split('|');
+            kimetext.Text = sp[0];
+          
+            kposttext.Text = sp[1];
+        }
+
+        private void delkraj_Click(object sender, EventArgs e)
+        {
+            string[] sp = listBox1.SelectedItem.ToString().Split('|');
+            baza.deletekraj(sp[0], sp[1]);
+            MessageBox.Show("Izbran kraj je bil izbrisan");
+            lol();
+            polnjenje();
+        }
+
+        private void updkraj_Click(object sender, EventArgs e)
+        {
+            string[] sp = listBox1.SelectedItem.ToString().Split('|');
+            bool ok = baza.updatekraj(kimetext.Text, kposttext.Text, sp[0], sp[1]);
+            if(ok == true)
+            {
+                MessageBox.Show("Kraj je bil uspešno posodobljen");
+                lol();
+                polnjenje();
+            }
+            else
+            {
+                MessageBox.Show("Prišlo je do napake pri posodabljanju kraja");
+            }
+        }
+
+        private void insertkraj_Click(object sender, EventArgs e)
+        {
+            bool ok = baza.insertkraj(kimetext.Text, kposttext.Text);
+            if (ok == true)
+            {
+                MessageBox.Show("Kraj je bil uspešno vnešen");
+                lol();
+                polnjenje();
+            }
+            else
+            {
+                MessageBox.Show("Prišlo je do napake pri vnašanju kraja");
+            }
+        }
+
+        private void kimetext_Click(object sender, EventArgs e)
+        {
+            if(kimetext.Text == "Vnesi ime kraja")
+            {
+                kimetext.Text = "";
+            }
+           
+        }
+
+        private void kposttext_Click(object sender, EventArgs e)
+        {
+            if(kposttext.Text == "Vnesi posto" )
+            {
+                kposttext.Text = "";
+            }
+           
         }
     }
 }

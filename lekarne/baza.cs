@@ -201,5 +201,46 @@ namespace lekarne
            
         }
 
+        public static void deletekraj(string ime, string posta)
+        {
+            string connection = connect();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT delkraj('" + ime + "','" + posta + "');", con);
+                com.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        public static bool updatekraj(string nime , string nposta, string sime, string sposta)
+        {
+            string connection = connect();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT updatekraj('" + nime + "','" + nposta + "','" + sime + "','" + sposta + "');", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                bool ok = reader.GetBoolean(0);
+                con.Close();
+                return ok;
+            }
+        }
+
+        public static bool insertkraj(string nime, string nposta)
+        {
+            string connection = connect();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT insertkraj('" + nime + "','" + nposta + "');", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                bool ok = reader.GetBoolean(0);
+                con.Close();
+                return ok;
+            }
+        }
     }
 }
