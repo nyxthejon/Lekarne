@@ -74,3 +74,4 @@ C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.dodlekarne.resources
 C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.profil.resources
 C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.OgledLekarne.resources
 C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.pozabljenogeslo.resources
+C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.updateuporanbik.resources

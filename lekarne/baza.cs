@@ -242,5 +242,21 @@ namespace lekarne
                 return ok;
             }
         }
+        public static int iduporabnika(string email, string pass)
+        {
+            string connection = connect();
+            using(NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand(" SELECT getiduporabnika('" + email + "','" + pass + "');", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                int id = reader.GetInt32(0);
+                con.Close();
+                return id;
+            }
+        }
+
+        
     }
 }

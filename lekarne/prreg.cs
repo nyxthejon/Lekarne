@@ -39,7 +39,8 @@ namespace lekarne
                 case true:
                     MessageBox.Show("Uspešna prijava");
                     this.Hide();
-                    profil profi = new profil();
+                    int id = baza.iduporabnika(email, pass);
+                    profil profi = new profil(id);
                     profi.Show();
                     break;
                 case false:

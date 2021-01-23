@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.dodlekarnebutton = new System.Windows.Forms.Button();
-            this.izblekbutton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.updateuporabnik = new System.Windows.Forms.Button();
+            this.deluporabnika = new System.Windows.Forms.Button();
+            this.ime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dodlekarnebutton
             // 
-            this.dodlekarnebutton.Location = new System.Drawing.Point(216, 98);
+            this.dodlekarnebutton.Location = new System.Drawing.Point(42, 119);
             this.dodlekarnebutton.Name = "dodlekarnebutton";
             this.dodlekarnebutton.Size = new System.Drawing.Size(392, 89);
             this.dodlekarnebutton.TabIndex = 0;
@@ -43,43 +44,57 @@
             this.dodlekarnebutton.UseVisualStyleBackColor = true;
             this.dodlekarnebutton.Click += new System.EventHandler(this.dodlekarnebutton_Click);
             // 
-            // izblekbutton
+            // updateuporabnik
             // 
-            this.izblekbutton.Location = new System.Drawing.Point(216, 227);
-            this.izblekbutton.Name = "izblekbutton";
-            this.izblekbutton.Size = new System.Drawing.Size(392, 84);
-            this.izblekbutton.TabIndex = 1;
-            this.izblekbutton.Text = "Izbriši lekarno";
-            this.izblekbutton.UseVisualStyleBackColor = true;
-            this.izblekbutton.Click += new System.EventHandler(this.izblekbutton_Click);
+            this.updateuporabnik.Location = new System.Drawing.Point(42, 248);
+            this.updateuporabnik.Name = "updateuporabnik";
+            this.updateuporabnik.Size = new System.Drawing.Size(392, 84);
+            this.updateuporabnik.TabIndex = 1;
+            this.updateuporabnik.Text = "Spremeni podatke o uporabniku";
+            this.updateuporabnik.UseVisualStyleBackColor = true;
+            this.updateuporabnik.Click += new System.EventHandler(this.izblekbutton_Click);
             // 
-            // button1
+            // deluporabnika
             // 
-            this.button1.Location = new System.Drawing.Point(216, 364);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(392, 83);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.deluporabnika.Location = new System.Drawing.Point(42, 370);
+            this.deluporabnika.Name = "deluporabnika";
+            this.deluporabnika.Size = new System.Drawing.Size(392, 83);
+            this.deluporabnika.TabIndex = 2;
+            this.deluporabnika.Text = "Izbriši uporabnika";
+            this.deluporabnika.UseVisualStyleBackColor = true;
+            this.deluporabnika.Click += new System.EventHandler(this.deluporabnika_Click);
+            // 
+            // ime
+            // 
+            this.ime.AutoSize = true;
+            this.ime.Location = new System.Drawing.Point(42, 37);
+            this.ime.Name = "ime";
+            this.ime.Size = new System.Drawing.Size(35, 13);
+            this.ime.TabIndex = 3;
+            this.ime.Text = "label1";
             // 
             // profil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 621);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.izblekbutton);
+            this.ClientSize = new System.Drawing.Size(477, 621);
+            this.Controls.Add(this.ime);
+            this.Controls.Add(this.deluporabnika);
+            this.Controls.Add(this.updateuporabnik);
             this.Controls.Add(this.dodlekarnebutton);
             this.Name = "profil";
             this.Text = "profil";
+            this.Load += new System.EventHandler(this.profil_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button dodlekarnebutton;
-        private System.Windows.Forms.Button izblekbutton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button updateuporabnik;
+        private System.Windows.Forms.Button deluporabnika;
+        private System.Windows.Forms.Label ime;
     }
 }
