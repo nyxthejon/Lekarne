@@ -37,7 +37,11 @@ namespace lekarne
                 upo = new uporabnik(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
 
                 ime.Text = "Pozdravljen " + upo.ime;
-                
+
+                emlab.Text = upo.email;
+                paslab.Text = upo.pass;
+                tellab.Text = upo.telefon;
+                krlab.Text = upo.kraj;
                 con.Close();
                 
             }
