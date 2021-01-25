@@ -257,6 +257,22 @@ namespace lekarne
             }
         }
 
+        public static bool updateuser(string email,string pass,string telefon,string kraj,string ime , int ajdi)
+        {
+            string connection = connect();
+            
+            using(NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand(" SELECT updateuser('" + email + "','" + pass + "','" + telefon + "','" + kraj + "','" + ime + "'," + ajdi + ");", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                bool ok = reader.GetBoolean(0);
+                con.Close();
+                return ok;
+            }
+        }
+
         
     }
 }
