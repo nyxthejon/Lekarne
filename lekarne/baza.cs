@@ -273,6 +273,21 @@ namespace lekarne
             }
         }
 
+        public static void deluser(int id)
+        {
+            string connection = connect();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT deluser(" + id + ");", con);
+                com.ExecuteNonQuery();
+                con.Close();
+                
+
+
+            }
+        }
+
         
     }
 }

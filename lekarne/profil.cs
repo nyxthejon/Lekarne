@@ -60,6 +60,12 @@ namespace lekarne
 
         private void deluporabnika_Click(object sender, EventArgs e)
         {
+            baza.deluser(ajdi);
+            prreg pr = new prreg();
+            MessageBox.Show("Uspešno izbrisan uporabnik");
+            pr.Show();
+            this.Close();
+           
 
         }
 
