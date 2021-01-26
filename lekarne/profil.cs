@@ -77,5 +77,11 @@ namespace lekarne
         {
 
         }
+
+        private void kbutton_Click(object sender, EventArgs e)
+        {
+            kraji kr = new kraji();
+            kr.Show();
+        }
     }
 }

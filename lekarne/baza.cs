@@ -213,18 +213,16 @@ namespace lekarne
             }
         }
 
-        public static bool updatekraj(string nime , string nposta, string sime, string sposta)
+        public static void updatekraj(string nime , string nposta, string sime, string sposta)
         {
             string connection = connect();
             using (NpgsqlConnection con = new NpgsqlConnection(connection))
             {
                 con.Open();
                 NpgsqlCommand com = new NpgsqlCommand("SELECT updatekraj('" + nime + "','" + nposta + "','" + sime + "','" + sposta + "');", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                reader.Read();
-                bool ok = reader.GetBoolean(0);
+                com.ExecuteNonQuery();
                 con.Close();
-                return ok;
+                
             }
         }
 

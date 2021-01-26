@@ -37,6 +37,7 @@
             this.paslab = new System.Windows.Forms.Label();
             this.tellab = new System.Windows.Forms.Label();
             this.krlab = new System.Windows.Forms.Label();
+            this.kbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dodlekarnebutton
@@ -82,7 +83,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(164, 441);
+            this.label1.Location = new System.Drawing.Point(162, 536);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 25);
             this.label1.TabIndex = 4;
@@ -92,7 +93,7 @@
             // 
             this.emlab.AutoSize = true;
             this.emlab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emlab.Location = new System.Drawing.Point(182, 497);
+            this.emlab.Location = new System.Drawing.Point(180, 592);
             this.emlab.Name = "emlab";
             this.emlab.Size = new System.Drawing.Size(111, 20);
             this.emlab.TabIndex = 5;
@@ -102,7 +103,7 @@
             // 
             this.paslab.AutoSize = true;
             this.paslab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paslab.Location = new System.Drawing.Point(182, 538);
+            this.paslab.Location = new System.Drawing.Point(180, 633);
             this.paslab.Name = "paslab";
             this.paslab.Size = new System.Drawing.Size(111, 20);
             this.paslab.TabIndex = 6;
@@ -112,7 +113,7 @@
             // 
             this.tellab.AutoSize = true;
             this.tellab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tellab.Location = new System.Drawing.Point(182, 579);
+            this.tellab.Location = new System.Drawing.Point(180, 674);
             this.tellab.Name = "tellab";
             this.tellab.Size = new System.Drawing.Size(111, 20);
             this.tellab.TabIndex = 7;
@@ -122,17 +123,28 @@
             // 
             this.krlab.AutoSize = true;
             this.krlab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.krlab.Location = new System.Drawing.Point(182, 617);
+            this.krlab.Location = new System.Drawing.Point(180, 712);
             this.krlab.Name = "krlab";
             this.krlab.Size = new System.Drawing.Size(111, 20);
             this.krlab.TabIndex = 8;
             this.krlab.Text = "Izpis podatkov";
+            // 
+            // kbutton
+            // 
+            this.kbutton.Location = new System.Drawing.Point(45, 438);
+            this.kbutton.Name = "kbutton";
+            this.kbutton.Size = new System.Drawing.Size(392, 83);
+            this.kbutton.TabIndex = 9;
+            this.kbutton.Text = "Kraji";
+            this.kbutton.UseVisualStyleBackColor = true;
+            this.kbutton.Click += new System.EventHandler(this.kbutton_Click);
             // 
             // profil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 755);
+            this.Controls.Add(this.kbutton);
             this.Controls.Add(this.krlab);
             this.Controls.Add(this.tellab);
             this.Controls.Add(this.paslab);
@@ -161,5 +173,6 @@
         private System.Windows.Forms.Label paslab;
         private System.Windows.Forms.Label tellab;
         private System.Windows.Forms.Label krlab;
+        private System.Windows.Forms.Button kbutton;
     }
 }
