@@ -51,6 +51,7 @@
             this.passtext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passtext.Location = new System.Drawing.Point(214, 203);
             this.passtext.Name = "passtext";
+            this.passtext.PasswordChar = '*';
             this.passtext.Size = new System.Drawing.Size(402, 29);
             this.passtext.TabIndex = 1;
             // 
@@ -129,7 +130,6 @@
             this.Controls.Add(this.emailtext);
             this.Name = "prreg";
             this.Text = "prreg";
-            this.Load += new System.EventHandler(this.prreg_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

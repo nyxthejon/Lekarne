@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace lekarne
             kraji();
         }
         string connect = baza.connect();
-        
+        string hash = "F@nct1onOV3rF0rm";
 
 
         public void kraji()
@@ -30,13 +31,29 @@ namespace lekarne
                 comboBox1.Items.Add(x);
             }
         }
-        private void regbut_Click(object sender, EventArgs e)
+        public string enkript(string pass)
         {
+            byte[] geslo = UTF8Encoding.UTF8.GetBytes(pass);
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            {
+                byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                {
+                    ICryptoTransform transform = tripDes.CreateEncryptor();
+                    byte[] results = transform.TransformFinalBlock(geslo, 0, geslo.Length);
+                    string enk = Convert.ToBase64String(results, 0, results.Length);
+                    return enk;
+                }
+            }
+        }
+            private void regbut_Click(object sender, EventArgs e)
+             {
+           
             string[] k = comboBox1.SelectedItem.ToString().Split('|');
             string kraj = k[0];
             string email = mailtext.Text;
             string ime = imetext.Text;
-            string geslo = geslotext.Text;
+            string geslo = enkript(geslotext.Text);
             string tel = telefontext.Text;
             bool prev = baza.registracija(email, geslo, ime, tel, kraj);
             switch(prev)
@@ -56,7 +73,7 @@ namespace lekarne
             }
 
             
-        }
+             }
 
         private void registracija_Load(object sender, EventArgs e)
         {

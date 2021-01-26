@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,11 +17,9 @@ namespace lekarne
         {
             InitializeComponent();
         }
+        string hash = "F@nct1onOV3rF0rm";
 
-        private void prreg_Load(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void regbutton_Click(object sender, EventArgs e)
         {
@@ -29,17 +28,37 @@ namespace lekarne
            
         }
 
+        public string enkript(string pass)
+        {
+            byte[] geslo = UTF8Encoding.UTF8.GetBytes(passtext.Text);
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            {
+                byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                {
+                    ICryptoTransform transform = tripDes.CreateEncryptor();
+                    byte[] results = transform.TransformFinalBlock(geslo, 0, geslo.Length);
+                    string enk = Convert.ToBase64String(results, 0, results.Length);
+                    return enk;
+                }
+            }
+        }
+
+      
+
         private void pributton_Click(object sender, EventArgs e)
         {
+            string eka = enkript(passtext.Text);
+           
             string email = emailtext.Text;
-            string pass = passtext.Text;
-            bool prev = baza.prijava(email, pass);
+            
+            bool prev = baza.prijava(email, eka);
             switch(prev)
             {
                 case true:
                     MessageBox.Show("Uspešna prijava");
                     this.Hide();
-                    int id = baza.iduporabnika(email, pass);
+                    int id = baza.iduporabnika(email, eka);
                     profil profi = new profil(id);
                     profi.Show();
                     break;

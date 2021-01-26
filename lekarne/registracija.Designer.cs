@@ -65,6 +65,7 @@
             this.geslotext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.geslotext.Location = new System.Drawing.Point(107, 232);
             this.geslotext.Name = "geslotext";
+            this.geslotext.PasswordChar = '*';
             this.geslotext.Size = new System.Drawing.Size(343, 29);
             this.geslotext.TabIndex = 5;
             // 
@@ -92,7 +93,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(264, 32);
             this.comboBox1.TabIndex = 8;
-          
             // 
             // label2
             // 

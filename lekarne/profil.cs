@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
 using System.Configuration;
+using System.Security.Cryptography;
 
 namespace lekarne
 {
@@ -23,6 +24,7 @@ namespace lekarne
             ajdi = id;
             podatki();
         }
+        string hash = "F@nct1onOV3rF0rm";
 
         public void podatki()
         {
@@ -39,15 +41,29 @@ namespace lekarne
                 ime.Text = "Pozdravljen " + upo.ime;
 
                 emlab.Text = upo.email;
-                paslab.Text = upo.pass;
+                paslab.Text = dekript(upo.pass);
                 tellab.Text = upo.telefon;
                 krlab.Text = upo.kraj;
                 con.Close();
                 
             }
         }
-    
 
+        public string dekript(string pass)
+        {
+            byte[] geslo = Convert.FromBase64String(pass);
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            {
+                byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                {
+                    ICryptoTransform transform = tripDes.CreateDecryptor();
+                    byte[] results = transform.TransformFinalBlock(geslo, 0, geslo.Length);
+                    string enk = UTF8Encoding.UTF8.GetString(results);
+                    return enk;
+                }
+            }
+        }
         private void dodlekarnebutton_Click(object sender, EventArgs e)
         {
             dodlekarne dod = new dodlekarne();
