@@ -99,5 +99,21 @@ namespace lekarne
             kraji kr = new kraji();
             kr.Show();
         }
+
+        private void nazajnaizpisbutton_Click(object sender, EventArgs e)
+        {
+
+            Form1 Izpis = new Form1(ajdi);
+            Izpis.Show();
+            this.Close();
+
+        }
+
+        private void odjavabutton_Click(object sender, EventArgs e)
+        {
+            Form1 Izpis = new Form1(0);
+            Izpis.Show();
+            this.Close();
+        }
     }
 }

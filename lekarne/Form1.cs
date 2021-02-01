@@ -14,9 +14,12 @@ namespace lekarne
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        int id = 0;
+        public Form1(int idu)
         {
             InitializeComponent();
+            id = idu;
+            prikazgumba();
             polnjenje();
         }
 
@@ -41,13 +44,21 @@ namespace lekarne
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void prikazgumba()
         {
-            prreg pr = new prreg();
-            pr.Show();
-            this.Hide();
+            if(id != 0)
+            {
+                pributton.Visible = false;
+                ogledprofilabutton.Visible = true;
+            }
+            else
+            {
+                pributton.Visible = true;
+                ogledprofilabutton.Visible = false;
+            }
         }
-
+             
+     
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -72,5 +83,18 @@ namespace lekarne
             }
         }
 
+        private void pributton_Click(object sender, EventArgs e)
+        {
+            prreg pr = new prreg();
+            pr.Show();
+            this.Hide();
+        }
+
+        private void ogledprofilabutton_Click(object sender, EventArgs e)
+        {
+            profil prof = new profil(id);
+            prof.Show();
+            this.Close();
+        }
     }
 }
