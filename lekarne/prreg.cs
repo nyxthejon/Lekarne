@@ -75,5 +75,10 @@ namespace lekarne
             pozabljenogeslo poz = new pozabljenogeslo();
             poz.Show();
         }
+
+        private void passtext_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

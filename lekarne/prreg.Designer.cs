@@ -54,6 +54,7 @@
             this.passtext.PasswordChar = '*';
             this.passtext.Size = new System.Drawing.Size(402, 29);
             this.passtext.TabIndex = 1;
+            this.passtext.TextChanged += new System.EventHandler(this.passtext_TextChanged);
             // 
             // label1
             // 

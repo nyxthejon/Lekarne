@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using Microsoft.Office.Core;
+using Microsoft.Office.Interop;
+using Excel = Microsoft.Office.Interop.Excel;
+
 
 
 namespace lekarne
@@ -15,6 +19,10 @@ namespace lekarne
     public partial class Form1 : Form
     {
         int id = 0;
+        Excel.Application oXL;
+        Excel._Workbook oWB;
+        Excel._Worksheet oSheet;
+
         public Form1(int idu)
         {
             InitializeComponent();
@@ -24,8 +32,8 @@ namespace lekarne
         }
 
         string connect = baza.connect();
-      
-        
+
+
         public void polnjenje()
         {
             dataGridView1.Rows.Clear();
@@ -35,10 +43,10 @@ namespace lekarne
                 con.Open();
                 NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kratizpislekarn()", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
-                while(reader.Read())
+                while (reader.Read())
                 {
-                    dataGridView1.Rows.Add(new object[] {reader.GetString(1),reader.GetString(2),reader.GetString(3),reader.GetString(4),reader.GetString(5),"Oglej" + " " + reader.GetInt32(0),"Delete " + reader.GetInt32(0) });
-                 
+                    dataGridView1.Rows.Add(new object[] { reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), "Oglej" + " " + reader.GetInt32(0), "Delete " + reader.GetInt32(0) });
+
                 }
                 con.Close();
             }
@@ -46,7 +54,7 @@ namespace lekarne
 
         public void prikazgumba()
         {
-            if(id != 0)
+            if (id != 0)
             {
                 pributton.Visible = false;
                 ogledprofilabutton.Visible = true;
@@ -57,12 +65,12 @@ namespace lekarne
                 ogledprofilabutton.Visible = false;
             }
         }
-             
-     
+
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if(e.ColumnIndex == 5)
+            if (e.ColumnIndex == 5)
             {
                 string val = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 string[] lol = val.Split(' ');
@@ -77,8 +85,8 @@ namespace lekarne
                 int id = Convert.ToInt32(lol[1]);
                 baza.deletelekarno(id);
 
-                
-               
+
+
                 polnjenje();
             }
         }
@@ -95,6 +103,50 @@ namespace lekarne
             profil prof = new profil(id);
             prof.Show();
             this.Close();
+        }
+
+        private void izvozpodatkovbutton_Click(object sender, EventArgs e)
+        {
+            oXL = new Excel.Application();
+            oWB = (Excel.Workbook)oXL.Workbooks.Add();
+            oSheet = (Excel._Worksheet)oWB.ActiveSheet;
+
+            oSheet.Cells[1, 1] = "Ime Lekarne";
+            oSheet.Cells[1, 2] = "Telefon";
+            oSheet.Cells[1, 3] = "Delovni Čas";
+            oSheet.Cells[1, 4] = "Naslov";
+            oSheet.Cells[1, 5] = "Kraj";
+            oSheet.Cells[1, 6] = "Število Delavcev";
+
+            oSheet.get_Range("A1", "F1").Font.Bold = true;
+            oSheet.get_Range("A1", "F1").VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            polnjenjeexcel();
+            oWB.Application.ActiveWorkbook.SaveAs(@"C:\Users\Jon\Desktop\Excel\" + imeexceltext.Text + ".xlsx");
+        }
+
+        public void polnjenjeexcel()
+        {
+            int naprej = 2;
+            string connection = baza.connect();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * From kratizpislekarn();", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    oSheet.Cells[naprej, 1] = reader.GetString(1);
+                    oSheet.Cells[naprej, 2] = reader.GetString(2);
+                    oSheet.Cells[naprej, 3] = reader.GetString(3);
+                    oSheet.Cells[naprej, 4] = reader.GetString(4);
+                    oSheet.Cells[naprej, 5] = reader.GetString(5);
+                    oSheet.Cells[naprej, 6] = reader.GetInt32(6);
+                    naprej++;
+                }
+                con.Close();
+            }
+
+
         }
     }
 }

@@ -38,6 +38,8 @@
             this.oglej = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ogledprofilabutton = new System.Windows.Forms.Button();
+            this.izvozpodatkovbutton = new System.Windows.Forms.Button();
+            this.imeexceltext = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,11 +120,30 @@
             this.ogledprofilabutton.UseVisualStyleBackColor = true;
             this.ogledprofilabutton.Click += new System.EventHandler(this.ogledprofilabutton_Click);
             // 
+            // izvozpodatkovbutton
+            // 
+            this.izvozpodatkovbutton.Location = new System.Drawing.Point(820, 171);
+            this.izvozpodatkovbutton.Name = "izvozpodatkovbutton";
+            this.izvozpodatkovbutton.Size = new System.Drawing.Size(163, 49);
+            this.izvozpodatkovbutton.TabIndex = 4;
+            this.izvozpodatkovbutton.Text = "Izvoz podatkov";
+            this.izvozpodatkovbutton.UseVisualStyleBackColor = true;
+            this.izvozpodatkovbutton.Click += new System.EventHandler(this.izvozpodatkovbutton_Click);
+            // 
+            // imeexceltext
+            // 
+            this.imeexceltext.Location = new System.Drawing.Point(820, 145);
+            this.imeexceltext.Name = "imeexceltext";
+            this.imeexceltext.Size = new System.Drawing.Size(163, 20);
+            this.imeexceltext.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 580);
+            this.Controls.Add(this.imeexceltext);
+            this.Controls.Add(this.izvozpodatkovbutton);
             this.Controls.Add(this.ogledprofilabutton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pributton);
@@ -130,6 +151,7 @@
             this.Text = "Pregled lekarn";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -144,6 +166,8 @@
         private System.Windows.Forms.DataGridViewButtonColumn oglej;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
         private System.Windows.Forms.Button ogledprofilabutton;
+        private System.Windows.Forms.Button izvozpodatkovbutton;
+        private System.Windows.Forms.TextBox imeexceltext;
     }
 }
 
