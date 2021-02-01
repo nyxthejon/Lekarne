@@ -39,8 +39,8 @@ namespace lekarne
 
         private void geslobuton_Click(object sender, EventArgs e)
         {
-
-            baza.zamenjajgeslo(emailtext.Text, passtext.Text);
+            string geslo = enkript(passtext.Text);
+            baza.zamenjajgeslo(emailtext.Text, geslo);
             this.Close();
         }
         public string enkript(string pass)
