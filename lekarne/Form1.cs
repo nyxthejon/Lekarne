@@ -69,7 +69,7 @@ namespace lekarne
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id  = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value);
+            int id  = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value;
             if (e.ColumnIndex == 5)
             {
                 OgledLekarne ogl = new OgledLekarne(id);
