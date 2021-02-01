@@ -76,3 +76,4 @@ C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.OgledLekarne.resourc
 C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.pozabljenogeslo.resources
 C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.updateuporanbik.resources
 C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.kraji.resources
+C:\Users\Jon\Source\Repos\Lekarne\lekarne\obj\Debug\lekarne.spremembavdelavca.resources

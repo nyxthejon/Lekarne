@@ -164,6 +164,12 @@
     <Compile Include="registracija.Designer.cs">
       <DependentUpon>registracija.cs</DependentUpon>
     </Compile>
+    <Compile Include="spremembavdelavca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="spremembavdelavca.Designer.cs">
+      <DependentUpon>spremembavdelavca.cs</DependentUpon>
+    </Compile>
     <Compile Include="uporabnik.cs" />
     <EmbeddedResource Include="dodlekarne.resx">
       <DependentUpon>dodlekarne.cs</DependentUpon>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="registracija.resx">
       <DependentUpon>registracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="spremembavdelavca.resx">
+      <DependentUpon>spremembavdelavca.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

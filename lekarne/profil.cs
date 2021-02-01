@@ -115,5 +115,12 @@ namespace lekarne
             Izpis.Show();
             this.Close();
         }
+
+        private void delavecbutton_Click(object sender, EventArgs e)
+        {
+            spremembavdelavca delavec = new spremembavdelavca(ajdi);
+            delavec.Show();
+
+        }
     }
 }

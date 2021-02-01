@@ -95,6 +95,24 @@ namespace lekarne
             
 
         }
+        public static List<string> izpislekarn()
+        {
+            List<string> lekarne = new List<string>();
+            string connection = connect();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kratizpislekarn()", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    lekarne.Add(reader.GetString(1) + "|" + reader.GetString(4));
+
+                }
+                con.Close();
+                return lekarne;
+            }
+        }     
 
         public static bool vnoslekarne(string ime,string tel,string dcas,string naslov,string kraj,string pot,string opis)
         {
@@ -298,6 +316,18 @@ namespace lekarne
                
                 con.Close(); 
                 return stlek;
+            }
+        }
+
+        public static void sprememba_delavca(int id, string imelek, string naslov)
+        {
+            string connection = connect();
+            using(NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT sprememba_delavca(" + id + ",'" + imelek + "','" + naslov + "');", con);
+                com.ExecuteNonQuery();
+                con.Close();
             }
         }
 

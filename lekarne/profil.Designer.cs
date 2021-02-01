@@ -47,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.delavecbutton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -64,7 +65,7 @@
             // 
             // updateuporabnik
             // 
-            this.updateuporabnik.Location = new System.Drawing.Point(19, 486);
+            this.updateuporabnik.Location = new System.Drawing.Point(19, 432);
             this.updateuporabnik.Name = "updateuporabnik";
             this.updateuporabnik.Size = new System.Drawing.Size(392, 84);
             this.updateuporabnik.TabIndex = 1;
@@ -74,7 +75,7 @@
             // 
             // deluporabnika
             // 
-            this.deluporabnika.Location = new System.Drawing.Point(19, 387);
+            this.deluporabnika.Location = new System.Drawing.Point(19, 343);
             this.deluporabnika.Name = "deluporabnika";
             this.deluporabnika.Size = new System.Drawing.Size(392, 83);
             this.deluporabnika.TabIndex = 2;
@@ -154,9 +155,9 @@
             // 
             // nazajnaizpisbutton
             // 
-            this.nazajnaizpisbutton.Location = new System.Drawing.Point(12, 489);
+            this.nazajnaizpisbutton.Location = new System.Drawing.Point(24, 524);
             this.nazajnaizpisbutton.Name = "nazajnaizpisbutton";
-            this.nazajnaizpisbutton.Size = new System.Drawing.Size(154, 83);
+            this.nazajnaizpisbutton.Size = new System.Drawing.Size(154, 81);
             this.nazajnaizpisbutton.TabIndex = 10;
             this.nazajnaizpisbutton.Text = "Vrni se nazaj na izpis";
             this.nazajnaizpisbutton.UseVisualStyleBackColor = true;
@@ -176,13 +177,14 @@
             this.panel1.Controls.Add(this.tellab);
             this.panel1.Location = new System.Drawing.Point(98, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 334);
+            this.panel1.Size = new System.Drawing.Size(260, 294);
             this.panel1.TabIndex = 11;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Menu;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.delavecbutton);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.deluporabnika);
             this.panel2.Controls.Add(this.updateuporabnik);
@@ -193,7 +195,7 @@
             // 
             // odjavabutton
             // 
-            this.odjavabutton.Location = new System.Drawing.Point(250, 489);
+            this.odjavabutton.Location = new System.Drawing.Point(250, 524);
             this.odjavabutton.Name = "odjavabutton";
             this.odjavabutton.Size = new System.Drawing.Size(154, 82);
             this.odjavabutton.TabIndex = 13;
@@ -255,6 +257,16 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Telefon:";
             // 
+            // delavecbutton
+            // 
+            this.delavecbutton.Location = new System.Drawing.Point(19, 522);
+            this.delavecbutton.Name = "delavecbutton";
+            this.delavecbutton.Size = new System.Drawing.Size(392, 84);
+            this.delavecbutton.TabIndex = 12;
+            this.delavecbutton.Text = "Spremeni uporabnika v delavca";
+            this.delavecbutton.UseVisualStyleBackColor = true;
+            this.delavecbutton.Click += new System.EventHandler(this.delavecbutton_Click);
+            // 
             // profil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,5 +307,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button delavecbutton;
     }
 }
