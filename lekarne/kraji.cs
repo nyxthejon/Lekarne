@@ -43,8 +43,8 @@ namespace lekarne
             updkraj.Visible = true;
             delkraj.Visible = true;
             sp = listBox1.SelectedItem.ToString().Split('|');
+            stlekarnlabel.Text = baza.stevilo_lek_vkraju(sp[0], sp[1]).ToString();
             kimetext.Text = sp[0];
-
             kposttext.Text = sp[1];
         }
 

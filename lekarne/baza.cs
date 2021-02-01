@@ -285,6 +285,21 @@ namespace lekarne
 
             }
         }
+        public static int stevilo_lek_vkraju(string krajime, string krajposta)
+        {
+            string connection = connect();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT stlek_pokraju('" + krajime + "','" + krajposta + "');", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                int stlek = reader.GetInt32(0);
+               
+                con.Close(); 
+                return stlek;
+            }
+        }
 
         
     }

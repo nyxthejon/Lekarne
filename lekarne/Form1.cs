@@ -77,7 +77,7 @@ namespace lekarne
                 int id = Convert.ToInt32(lol[1]);
                 baza.deletelekarno(id);
 
-                // majhaps prozilec
+                
                
                 polnjenje();
             }

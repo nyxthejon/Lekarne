@@ -34,6 +34,8 @@
             this.updkraj = new System.Windows.Forms.Button();
             this.delkraj = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.stlekarnlabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // insertkraj
@@ -97,11 +99,33 @@
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(373, 307);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(185, 24);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Število lekarn v kraju:";
+            // 
+            // stlekarnlabel
+            // 
+            this.stlekarnlabel.AutoSize = true;
+            this.stlekarnlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stlekarnlabel.Location = new System.Drawing.Point(576, 307);
+            this.stlekarnlabel.Name = "stlekarnlabel";
+            this.stlekarnlabel.Size = new System.Drawing.Size(31, 24);
+            this.stlekarnlabel.TabIndex = 15;
+            this.stlekarnlabel.Text = "xd";
+            // 
             // kraji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 699);
+            this.Controls.Add(this.stlekarnlabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.insertkraj);
             this.Controls.Add(this.kposttext);
             this.Controls.Add(this.kimetext);
@@ -124,5 +148,7 @@
         private System.Windows.Forms.Button updkraj;
         private System.Windows.Forms.Button delkraj;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label stlekarnlabel;
     }
 }
