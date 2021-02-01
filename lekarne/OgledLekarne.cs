@@ -38,16 +38,17 @@ namespace lekarne
 
         public void izpis()
         {
-            List<string> izp = baza.IzpisLekarne(idl);
-            imetext.Text = izp[0];
-            teltext.Text = izp[1];
-            dcastext.Text = izp[2];
-            nastext.Text = izp[3];
-            krajcombo.Text = izp[4];
+            lekarna lek = baza.IzpisLekarne(idl);
+            imetext.Text = lek.Ime_lekarne;
+            teltext.Text = lek.Telefon;
+            dcastext.Text = lek.DelovniCas;
+            nastext.Text = lek.Naslov;
+            krajcombo.Text = lek.Ime_kraja;
 
-            pictureBox1.ImageLocation = izp[5];
-            urlslike = izp[5];
-            opistext.Text = izp[6];
+            pictureBox1.ImageLocation = lek.Pot_slike;
+            urlslike = lek.Pot_slike;
+            opistext.Text = lek.Opis_slike;
+            stdelavcev.Text = lek.Stevilo_Delavcev.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)

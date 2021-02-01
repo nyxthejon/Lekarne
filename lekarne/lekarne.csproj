@@ -132,6 +132,7 @@
     <Compile Include="kraji.Designer.cs">
       <DependentUpon>kraji.cs</DependentUpon>
     </Compile>
+    <Compile Include="lekarna.cs" />
     <Compile Include="OgledLekarne.cs">
       <SubType>Form</SubType>
     </Compile>

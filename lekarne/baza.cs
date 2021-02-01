@@ -50,28 +50,21 @@ namespace lekarne
             }
         }
 
-        public static List<string> IzpisLekarne(int id)
+        public static lekarna IzpisLekarne(int id)
         {
             string connection = connect();
-            List<string> izpislek = new List<string>();
             using(NpgsqlConnection con = new NpgsqlConnection(connection))
             {
                 con.Open();
                 NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM izplekarne(" + id + ");", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 reader.Read();
-                izpislek.Add(reader.GetString(0));
-                izpislek.Add(reader.GetString(1));
-                izpislek.Add(reader.GetString(2));
-                izpislek.Add(reader.GetString(3));
-                izpislek.Add(reader.GetString(4));
-                izpislek.Add(reader.GetString(5));
-                izpislek.Add(reader.GetString(6));
+                lekarna lek = new lekarna(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(7));
 
 
 
                 con.Close(); 
-                return izpislek;
+                return lek;
             }
             
            
@@ -330,7 +323,6 @@ namespace lekarne
                 con.Close();
             }
         }
-
         
     }
 }

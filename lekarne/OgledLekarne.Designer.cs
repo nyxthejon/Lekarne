@@ -54,6 +54,8 @@
             this.telefon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kraj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.stdelavcev = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -105,6 +107,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.stdelavcev);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.delavcidatagrid);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -310,6 +314,26 @@
             this.email.HeaderText = "Email";
             this.email.Name = "email";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(497, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(224, 24);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Število delavcev v lekarni:";
+            // 
+            // stdelavcev
+            // 
+            this.stdelavcev.AutoSize = true;
+            this.stdelavcev.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stdelavcev.Location = new System.Drawing.Point(752, 21);
+            this.stdelavcev.Name = "stdelavcev";
+            this.stdelavcev.Size = new System.Drawing.Size(60, 24);
+            this.stdelavcev.TabIndex = 2;
+            this.stdelavcev.Text = "label8";
+            // 
             // OgledLekarne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,6 +346,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.delavcidatagrid)).EndInit();
             this.ResumeLayout(false);
@@ -355,5 +380,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn telefon;
         private System.Windows.Forms.DataGridViewTextBoxColumn kraj;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.Label stdelavcev;
+        private System.Windows.Forms.Label label7;
     }
 }
