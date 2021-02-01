@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Npgsql;
 namespace lekarne
 {
     public partial class OgledLekarne : Form
     {
         int idl;
-       string urlslike = "";
+        string urlslike = "";
         public OgledLekarne(int id)
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace lekarne
             updatebutton.Visible = true;
             updatesliko.Visible = false;
             idl = id;
+            delavci();
             izpis();
         }
 
@@ -42,7 +44,7 @@ namespace lekarne
             dcastext.Text = izp[2];
             nastext.Text = izp[3];
             krajcombo.Text = izp[4];
-       
+
             pictureBox1.ImageLocation = izp[5];
             urlslike = izp[5];
             opistext.Text = izp[6];
@@ -50,7 +52,7 @@ namespace lekarne
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
             this.Close();
         }
 
@@ -71,14 +73,14 @@ namespace lekarne
         private void confirmbutton_Click(object sender, EventArgs e)
         {
             string pot = "";
-            if(updatesliko.Text.Equals("Posodobi sliko"))
+            if (updatesliko.Text.Equals("Posodobi sliko"))
             {
-           
+
                 pot = urlslike;
             }
             else
             {
-              
+
                 pot = updatesliko.Text;
             }
             string[] kr = krajcombo.Text.ToString().Split('|');
@@ -98,6 +100,24 @@ namespace lekarne
             krajcombo.Enabled = false;
             izpis();
         }
+
+        public void delavci()
+        {
+            string connection = baza.connect();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand(" SELECT * FROM delavciizpis("+ idl + ");", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while(reader.Read())
+                {
+                    delavcidatagrid.Rows.Add(new object[] { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)});
+                }
+              
+                con.Close();
+            }
+        }
+    
 
         private void updatesliko_Click(object sender, EventArgs e)
         {
