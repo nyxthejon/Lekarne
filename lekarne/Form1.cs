@@ -45,7 +45,7 @@ namespace lekarne
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    dataGridView1.Rows.Add(new object[] { reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), "Oglej" + " " + reader.GetInt32(0), "Delete " + reader.GetInt32(0) });
+                    dataGridView1.Rows.Add(new object[] { reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), "Oglej" , "Delete", reader.GetInt32(0) });
 
                 }
                 con.Close();
@@ -69,24 +69,15 @@ namespace lekarne
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int id  = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value);
             if (e.ColumnIndex == 5)
             {
-                string val = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                string[] lol = val.Split(' ');
-                int id = Convert.ToInt32(lol[1]);
                 OgledLekarne ogl = new OgledLekarne(id);
                 ogl.Show();
             }
             if (e.ColumnIndex == 6)
             {
-                string val = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                string[] lol = val.Split(' ');
-                int id = Convert.ToInt32(lol[1]);
                 baza.deletelekarno(id);
-
-
-
                 polnjenje();
             }
         }
