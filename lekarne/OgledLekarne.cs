@@ -14,8 +14,9 @@ namespace lekarne
     public partial class OgledLekarne : Form
     {
         int idl;
+        int idu;
         string urlslike = "";
-        public OgledLekarne(int id)
+        public OgledLekarne(int id, int idupo)
         {
             InitializeComponent();
             kraji();
@@ -23,6 +24,7 @@ namespace lekarne
             updatebutton.Visible = true;
             updatesliko.Visible = false;
             idl = id;
+            idu = idupo;
             delavci();
             izpis();
         }
@@ -45,7 +47,8 @@ namespace lekarne
             nastext.Text = lek.Naslov;
             krajcombo.Text = lek.Ime_kraja;
 
-            pictureBox1.ImageLocation = lek.Pot_slike;
+          
+            pictureBox1.Image = Image.FromFile(lek.Pot_slike);
             urlslike = lek.Pot_slike;
             opistext.Text = lek.Opis_slike;
             stdelavcev.Text = lek.Stevilo_Delavcev.ToString();
@@ -57,50 +60,9 @@ namespace lekarne
             this.Close();
         }
 
-        private void updatebutton_Click(object sender, EventArgs e)
-        {
-            imetext.ReadOnly = false;
-            teltext.ReadOnly = false;
-            dcastext.ReadOnly = false;
-            nastext.ReadOnly = false;
-            krajcombo.Enabled = true;
-            opistext.ReadOnly = false;
 
-            updatebutton.Visible = false;
-            updatesliko.Visible = true;
-            confirmbutton.Visible = true;
-        }
 
-        private void confirmbutton_Click(object sender, EventArgs e)
-        {
-            string pot = "";
-            if (updatesliko.Text.Equals("Posodobi sliko"))
-            {
-
-                pot = urlslike;
-            }
-            else
-            {
-
-                pot = updatesliko.Text;
-            }
-            string[] kr = krajcombo.Text.ToString().Split('|');
-            MessageBox.Show(kr[0]);
-            string mes = baza.updatelekarne(idl, imetext.Text, teltext.Text, dcastext.Text, nastext.Text, kr[0], pot, opistext.Text);
-            MessageBox.Show(mes);
-            updatesliko.Text = "Posodobi sliko";
-            updatesliko.Visible = false;
-            confirmbutton.Visible = false;
-            updatebutton.Visible = true;
-
-            imetext.ReadOnly = true;
-            teltext.ReadOnly = true;
-            dcastext.ReadOnly = true;
-            nastext.ReadOnly = true;
-            opistext.ReadOnly = true;
-            krajcombo.Enabled = false;
-            izpis();
-        }
+    
 
         public void delavci()
         {
@@ -120,7 +82,59 @@ namespace lekarne
         }
     
 
-        private void updatesliko_Click(object sender, EventArgs e)
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updatebutton_Click_1(object sender, EventArgs e)
+        {
+            imetext.ReadOnly = false;
+            teltext.ReadOnly = false;
+            dcastext.ReadOnly = false;
+            nastext.ReadOnly = false;
+            krajcombo.Enabled = true;
+            opistext.ReadOnly = false;
+
+            updatebutton.Visible = false;
+            updatesliko.Visible = true;
+            confirmbutton.Visible = true;
+        }
+
+        private void confirmbutton_Click_1(object sender, EventArgs e)
+        {
+            string pot = "";
+            if (updatesliko.Text.Equals("Posodobi sliko"))
+            {
+
+                pot = urlslike;
+            }
+            else
+            {
+
+                pot = updatesliko.Text;
+            }
+            string[] kr = krajcombo.Text.ToString().Split('|');
+           
+            string mes = baza.updatelekarne(idl, imetext.Text, teltext.Text, dcastext.Text, nastext.Text, kr[0], pot, opistext.Text);
+            MessageBox.Show(mes);
+            updatesliko.Text = "Posodobi sliko";
+            updatesliko.Visible = false;
+            confirmbutton.Visible = false;
+            updatebutton.Visible = true;
+
+            imetext.ReadOnly = true;
+            teltext.ReadOnly = true;
+            dcastext.ReadOnly = true;
+            nastext.ReadOnly = true;
+            opistext.ReadOnly = true;
+            krajcombo.Enabled = false;
+            izpis();
+            
+        }
+
+        private void updatesliko_Click_1(object sender, EventArgs e)
         {
             openFileDialog1 = new OpenFileDialog();
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -142,6 +156,13 @@ namespace lekarne
                     MessageBox.Show(ex.ToString());
                 }
             }
+        }
+
+        private void nazajbutton_Click(object sender, EventArgs e)
+        {
+            Form1 izpis = new Form1(idu);
+            izpis.Show();
+            this.Close();
         }
     }
 }

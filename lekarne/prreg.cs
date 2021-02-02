@@ -51,14 +51,17 @@ namespace lekarne
             string eka = enkript(passtext.Text);
            
             string email = emailtext.Text;
-            
+       
+
             bool prev = baza.prijava(email, eka);
+         
             switch(prev)
             {
                 case true:
                     MessageBox.Show("Uspešna prijava");
                     this.Hide();
                     int id = baza.iduporabnika(email, eka);
+                    ;
                     profil profi = new profil(id);
                     profi.Show();
                     break;

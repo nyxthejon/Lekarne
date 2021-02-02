@@ -28,17 +28,24 @@ namespace lekarne
 
         private void konbutton_Click(object sender, EventArgs e)
         {
+
             string imel = imelektext.Text;
             string tel = teltext.Text;
 
             DateTime odpiralni = o_cas.Value;
             DateTime zapiralni = z_cas.Value;
+            if(odpiralni > zapiralni)
+            {
+                DateTime temp = odpiralni;
+                odpiralni = zapiralni;
+                zapiralni = temp;
+            }
             string dcas = odpiralni.ToString("t") + " - " + zapiralni.ToString("t");
 
             string naslov = naslovtext.Text;
             string[] k = krajcombo.SelectedItem.ToString().Split('|');
             string kraj = k[0];
-            string slika = "slike\\" + slikabutton.Text;
+            string slika = slikabutton.Text;
             string opis = opistext.Text;
             bool ok = baza.vnoslekarne(imel, tel, dcas, naslov, kraj, slika, opis);
             if (ok == true)
@@ -74,6 +81,8 @@ namespace lekarne
                     fileend = fileend + "\\" + filename;
                     System.IO.File.Copy(filepath, fileend, true);
                     slikabutton.Text = fileend;
+                   
+                  
 
                 }
                 catch (Exception ex)

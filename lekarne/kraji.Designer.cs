@@ -115,9 +115,9 @@
             this.stlekarnlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stlekarnlabel.Location = new System.Drawing.Point(576, 307);
             this.stlekarnlabel.Name = "stlekarnlabel";
-            this.stlekarnlabel.Size = new System.Drawing.Size(31, 24);
+            this.stlekarnlabel.Size = new System.Drawing.Size(89, 24);
             this.stlekarnlabel.TabIndex = 15;
-            this.stlekarnlabel.Text = "xd";
+            this.stlekarnlabel.Text = "Izberi kraj";
             // 
             // kraji
             // 

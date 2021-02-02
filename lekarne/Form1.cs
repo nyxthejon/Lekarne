@@ -69,15 +69,16 @@ namespace lekarne
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id  = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value;
+            int idl  = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value);
             if (e.ColumnIndex == 5)
             {
-                OgledLekarne ogl = new OgledLekarne(id);
+                OgledLekarne ogl = new OgledLekarne(idl,id);
                 ogl.Show();
+                this.Hide();
             }
             if (e.ColumnIndex == 6)
             {
-                baza.deletelekarno(id);
+                baza.deletelekarno(idl);
                 polnjenje();
             }
         }
@@ -93,7 +94,7 @@ namespace lekarne
         {
             profil prof = new profil(id);
             prof.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void izvozpodatkovbutton_Click(object sender, EventArgs e)

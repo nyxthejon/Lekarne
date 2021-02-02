@@ -585,6 +585,29 @@ $BODY$;
 ALTER FUNCTION public.sprememba_delavca(integer, character varying, character varying)
     OWNER TO smqoixml;
 
+Odstranitev Delavca
+
+-- FUNCTION: public.odstranidelavca(integer)
+
+-- DROP FUNCTION public.odstranidelavca(integer);
+
+CREATE OR REPLACE FUNCTION public.odstranidelavca(
+	id integer)
+    RETURNS void
+    LANGUAGE 'plpgsql'
+
+    COST 100
+    VOLATILE 
+AS $BODY$
+BEGIN
+UPDATE uporabniki 
+SET prev_zaposlen = FALSE, delavec_lek_id = 0
+WHERE id_u = id;
+END;
+$BODY$;
+
+ALTER FUNCTION public.odstranidelavca(integer)
+    OWNER TO smqoixml;
 
 Izpis uporabnikov
 
@@ -594,7 +617,7 @@ Izpis uporabnikov
 
 CREATE OR REPLACE FUNCTION public.izpisuporabnika(
 	id integer)
-    RETURNS TABLE(email character varying, pass character varying, telefon_u character varying, kraj character varying, ime character varying) 
+    RETURNS TABLE(email character varying, pass character varying, telefon_u character varying, kraj character varying, ime character varying, idlek int) 
     LANGUAGE 'plpgsql'
 
     COST 100
@@ -603,13 +626,12 @@ CREATE OR REPLACE FUNCTION public.izpisuporabnika(
 AS $BODY$
 BEGIN 
 RETURN QUERY 
-SELECT u.email,u.pass,u.telefon_u,k.ime_k,u.ime_u FROM kraji k INNER JOIN uporabniki u ON u.kraj_id = k.id_k WHERE u.id_u = id;
+SELECT u.email,u.pass,u.telefon_u,k.ime_k,u.ime_u,u.delavec_lek_id FROM kraji k INNER JOIN uporabniki u ON u.kraj_id = k.id_k WHERE u.id_u = id;
 END;
 $BODY$;
 
 ALTER FUNCTION public.izpisuporabnika(integer)
     OWNER TO smqoixml;
-
 
 Izpis delavcev
 
@@ -662,14 +684,14 @@ CREATE FUNCTION public.arhiv()
     VOLATILE NOT LEAKPROOF
 AS $BODY$
 BEGIN
-INSERT INTO arhiv(a_ime_l,a_telefon,a_delovnicas,a_naslov,a_kraj_id,a_lekarnaid)
-VALUES (NEW.ime_l,NEW.telefon_l,NEW.delovnicas,NEW.naslov,NEW.kraj_id,NEW.id_l);
+INSERT INTO arhiv(a_ime_l,a_telefon,a_delovnicas,a_naslov,a_kraj_id)
+VALUES (NEW.ime_l,NEW.telefon_l,NEW.delovnicas,NEW.naslov,NEW.kraj_id);
 RETURN NULL;
 END;
 $BODY$;
 
 ALTER FUNCTION public.arhiv()
-    OWNER TO smqoixml;	
+    OWNER TO smqoixml;
 
 
 Število Lekarn Trigger

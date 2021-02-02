@@ -323,6 +323,51 @@ namespace lekarne
                 con.Close();
             }
         }
-        
+
+        public static void odstranitev_delavca(int id)
+        {
+            string connection = connect();
+            using(NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT odstranidelavca(" + id + ");", con);
+                com.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        public static string ime_lek(int id)
+        {
+            string connection = connect();
+            using(NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT ime_lek(" + id + ");",con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                string ime = reader.GetString(0);
+                con.Close();
+                return ime;
+            }
+        }
+
+        public static uporabnik izpis_uporabnika(int id)
+        {
+            string connection = baza.connect();
+
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand(" SELECT * FROM izpisuporabnika(" + id + ");", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                uporabnik upo = new uporabnik(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4),reader.GetInt32(5));
+
+               
+                con.Close();
+                return upo;
+
+            }
+        }
     }
 }

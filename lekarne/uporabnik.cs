@@ -13,15 +13,18 @@ namespace lekarne
         public string telefon { get; set; }
         public string kraj { get; set; }
         public string ime { get; set; }
+        public int Idlekarne { get; set; }
 
 
-        public uporabnik(string mail,string pas, string tele, string kra, string im)
+
+        public uporabnik(string mail,string pas, string tele, string kra, string im, int lekid)
         {
             email = mail;
             pass = pas;
             telefon = tele;
             kraj = kra;
             ime = im;
+            Idlekarne = lekid;
         }
     }
 }

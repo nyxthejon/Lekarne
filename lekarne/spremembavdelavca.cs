@@ -49,6 +49,9 @@ namespace lekarne
             baza.sprememba_delavca(ajdi, ok[0], ok[1]);
             MessageBox.Show("Uporabnik je bil uspešno spremenjen v delavca");
             this.Close();
+            profil profi = new profil(ajdi);
+            profi.Show();
+            this.Close();
 
         }
     }

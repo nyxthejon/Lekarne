@@ -34,9 +34,9 @@
             this.prevbutton = new System.Windows.Forms.Button();
             this.prevpanel = new System.Windows.Forms.Panel();
             this.dodpanel = new System.Windows.Forms.Panel();
-            this.lekarnecombo = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.doddelbutton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lekarnecombo = new System.Windows.Forms.ComboBox();
             this.prevpanel.SuspendLayout();
             this.dodpanel.SuspendLayout();
             this.SuspendLayout();
@@ -100,25 +100,6 @@
             this.dodpanel.Size = new System.Drawing.Size(409, 244);
             this.dodpanel.TabIndex = 5;
             // 
-            // lekarnecombo
-            // 
-            this.lekarnecombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lekarnecombo.FormattingEnabled = true;
-            this.lekarnecombo.Location = new System.Drawing.Point(50, 75);
-            this.lekarnecombo.Name = "lekarnecombo";
-            this.lekarnecombo.Size = new System.Drawing.Size(316, 32);
-            this.lekarnecombo.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(320, 24);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Izberite v kateri lekarni opravljate delo";
-            // 
             // doddelbutton
             // 
             this.doddelbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,11 +111,30 @@
             this.doddelbutton.UseVisualStyleBackColor = true;
             this.doddelbutton.Click += new System.EventHandler(this.doddelbutton_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(46, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(320, 24);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Izberite v kateri lekarni opravljate delo";
+            // 
+            // lekarnecombo
+            // 
+            this.lekarnecombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lekarnecombo.FormattingEnabled = true;
+            this.lekarnecombo.Location = new System.Drawing.Point(50, 75);
+            this.lekarnecombo.Name = "lekarnecombo";
+            this.lekarnecombo.Size = new System.Drawing.Size(316, 32);
+            this.lekarnecombo.TabIndex = 0;
+            // 
             // spremembavdelavca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 450);
+            this.ClientSize = new System.Drawing.Size(589, 630);
             this.Controls.Add(this.dodpanel);
             this.Controls.Add(this.prevpanel);
             this.Controls.Add(this.label1);

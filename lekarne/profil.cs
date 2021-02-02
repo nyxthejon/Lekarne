@@ -16,27 +16,25 @@ namespace lekarne
     public partial class profil : Form
     {
         int ajdi;
-
         uporabnik upo;
+      
         public profil(int id)
         {
             InitializeComponent();
             ajdi = id;
+
             podatki();
         }
         string hash = "F@nct1onOV3rF0rm";
 
         public void podatki()
         {
-            string connection = baza.connect();
-
-            using (NpgsqlConnection con = new NpgsqlConnection(connection))
-            {
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand(" SELECT * FROM izpisuporabnika(" + ajdi +");", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                reader.Read();
-                upo = new uporabnik(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
+            leklabel.Visible = false;
+            lekizpis.Visible = false;
+            delavecbutton.Visible = true;
+            odstranidelavcabutton.Visible = false;
+            
+            upo = baza.izpis_uporabnika(ajdi);
 
                 ime.Text = "Pozdravljen " + upo.ime;
 
@@ -44,9 +42,21 @@ namespace lekarne
                 paslab.Text = dekript(upo.pass);
                 tellab.Text = upo.telefon;
                 krlab.Text = upo.kraj;
-                con.Close();
-                
+            
+            
+            if(upo.Idlekarne != 0)
+            {
+                string lekarna = baza.ime_lek(upo.Idlekarne);
+                lekizpis.Visible = true;
+                leklabel.Visible = true;
+                delavecbutton.Visible = false;
+                odstranidelavcabutton.Visible = true;
+
+                lekizpis.Text = lekarna;
+
             }
+                
+            
         }
 
         public string dekript(string pass)
@@ -119,8 +129,17 @@ namespace lekarne
         private void delavecbutton_Click(object sender, EventArgs e)
         {
             spremembavdelavca delavec = new spremembavdelavca(ajdi);
+            this.Hide();
             delavec.Show();
+         
 
+        }
+
+        private void odstranidelavcabutton_Click(object sender, EventArgs e)
+        {
+            baza.odstranitev_delavca(ajdi);
+            MessageBox.Show("Uporabnik ni več delavec");
+            podatki();
         }
     }
 }
