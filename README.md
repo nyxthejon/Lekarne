@@ -1,7 +1,10 @@
-# Lekarne
+# Lekarne – Program ki omogo?a pregled vseh lekarn v Sloveniji (podatkov o samih lekarnah in tudi delavcih), program vsebuje moznost ustvarjanja ra?una in preko tega dodajanje lekarn, krajev , dodajanje delavcev v lekarnah. Možno je tudi urejanje in brisanje vseh podatkov, ter izvoz izpisa v excel datoteko.
+
 
 Funkcije
-Izpis krajev
+
+Izpis krajev – Vrne vse kraje in njihove postne stevilke, uporabljeno za polnjenje comboboxov za kraj.
+
 
 -- FUNCTION: public.krajizpis()
 
@@ -26,7 +29,26 @@ ALTER FUNCTION public.krajizpis()
     OWNER TO smqoixml;
 
 
-Izpis vseh podatkov o lekarni
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Izpis vseh podatkov o lekarni – Izpiše vse podatke o posamezni s podanim id-jem. 
+
+
 
 -- FUNCTION: public.izplekarne(integer)
 
@@ -52,7 +74,27 @@ ALTER FUNCTION public.izplekarne(integer)
     OWNER TO smqoixml;
 
 
-Registracija
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Registracija – Doda registriranega uporabnika v podatkovno bazo (preveri tudi ?e že obstaja kdo s istim e-naslovom).
+
 
 -- FUNCTION: public.registracija(character varying, character varying, character varying, character varying, character varying)
 
@@ -99,7 +141,10 @@ ALTER FUNCTION public.registracija(character varying, character varying, charact
 
 
 
-Izpis vseh lekarn
+
+Izpis vseh lekarn – izpise vse kljucne informacij o vseh lekarnah, za uporabo pri izpisu vseh.
+
+
 -- FUNCTION: public.kratizpislekarn()
 
 -- DROP FUNCTION public.kratizpislekarn();
@@ -123,7 +168,30 @@ ALTER FUNCTION public.kratizpislekarn()
     OWNER TO smqoixml;
 
 
-Vnos lekarne
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Vnos lekarne – Doda novo lekarno v podatkovno bazo.
 
 -- FUNCTION: public.vnoslekarne(character varying, character varying, character varying, character varying, character varying, character varying, text)
 
@@ -175,7 +243,14 @@ ALTER FUNCTION public.vnoslekarne(character varying, character varying, characte
     OWNER TO smqoixml;
 
 
-Prijava
+
+
+
+
+
+
+Prijava – vrne true ?e so vnešeni podatki za prijavo pravilni, druga?e pa vrne false.
+
 
 -- FUNCTION: public.pri(character varying, character varying)
 
@@ -214,7 +289,8 @@ ALTER FUNCTION public.pri(character varying, character varying)
     OWNER TO smqoixml;
 
 
-Update lekarne
+
+Update lekarne – posodobi lekarno z novo vnešenimi podatki.
 
 -- FUNCTION: public.updatelekarne(integer, character varying, character varying, character varying, character varying, character varying, character varying, text)
 
@@ -245,7 +321,11 @@ WHERE id_l = id;
 
 
 
-UPDATE slike
+
+
+
+
+UPDATE slike – posodobi dolo?eno sliko.
  
 SET url_slike = pot,opis = op
 WHERE lekarna_id = id;
@@ -257,7 +337,7 @@ ALTER FUNCTION public.updatelekarne(integer, character varying, character varyin
     OWNER TO smqoixml;
 
 
-Delete lekarne
+Delete lekarne – izbirše dolo?eno lekarno
 
 -- FUNCTION: public.deletelekarno(integer)
 
@@ -285,7 +365,34 @@ ALTER FUNCTION public.deletelekarno(integer)
     OWNER TO smqoixml;
 
 
-Preverjanje maila
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Preverjanje maila – Preveri ?e vnešen mail obstaja v podatkovni bazi
 
 -- FUNCTION: public.prevmail(character varying)
 
@@ -316,7 +423,31 @@ $BODY$;
 ALTER FUNCTION public.prevmail(character varying)
     OWNER TO smqoixml;
 
-Zamenjaj geslo 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Zamenjaj geslo – Zamenja geslo pri uporabniku z enakim e-naslovu.
+
+
 
 -- FUNCTION: public.zamgeslo(character varying, character varying)
 
@@ -341,7 +472,34 @@ $BODY$;
 ALTER FUNCTION public.zamgeslo(character varying, character varying)
     OWNER TO smqoixml;
 
-Delete kraj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Delete kraj – izbirše izbran kraj.
 
 -- FUNCTION: public.delkraj(character varying, character varying)
 
@@ -366,7 +524,36 @@ ALTER FUNCTION public.delkraj(character varying, character varying)
     OWNER TO smqoixml;
 
 
-Update kraj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Update kraj – posodobi izbran kraj z novo vnešenimi podatki
 
 -- FUNCTION: public.updatekraj(character varying, character varying, character varying, character varying)
 
@@ -394,7 +581,30 @@ $BODY$;
 ALTER FUNCTION public.updatekraj(character varying, character varying, character varying, character varying)
     OWNER TO smqoixml;
 
-Insert kraj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Insert kraj – Doda nov kraj v bazo
 
 -- FUNCTION: public.insertkraj(character varying, character varying)
 
@@ -430,7 +640,25 @@ $BODY$;
 ALTER FUNCTION public.insertkraj(character varying, character varying)
     OWNER TO smqoixml;
 
-Id uporabnika
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Id uporabnika – pridobi id uporabnika z vnešenimi podatki.
 
 -- FUNCTION: public.getiduporabnika(character varying, character varying)
 
@@ -456,7 +684,33 @@ $BODY$;
 ALTER FUNCTION public.getiduporabnika(character varying, character varying)
     OWNER TO smqoixml;
 
-Update user
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Update user – posodobi uporabnika z novimi podatki
 
 -- FUNCTION: public.updateuser(character varying, character varying, character varying, character varying, character varying, integer)
 
@@ -503,7 +757,11 @@ $BODY$;
 ALTER FUNCTION public.updateuser(character varying, character varying, character varying, character varying, character varying, integer)
     OWNER TO smqoixml;
 
-Delete user 
+
+
+
+
+Delete user – izbriše izbranega uporabnika.
 
 -- FUNCTION: public.deluser(integer)
 
@@ -527,7 +785,38 @@ ALTER FUNCTION public.deluser(integer)
     OWNER TO smqoixml;
 
 
-Stevilo lekarn v kraju
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Stevilo lekarn v kraju – izpiše Koliko lekarn se nahaja v dolo?enem kraju.
+
 
 -- FUNCTION: public.stlek_pokraju(character varying, character varying)
 
@@ -556,7 +845,29 @@ $BODY$;
 ALTER FUNCTION public.stlek_pokraju(character varying, character varying)
     OWNER TO smqoixml;
 
-Sprememba v delavca
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sprememba v delavca – spremeni uporabnika v delavca
+
 
 -- FUNCTION: public.sprememba_delavca(integer, character varying, character varying)
 
@@ -585,7 +896,27 @@ $BODY$;
 ALTER FUNCTION public.sprememba_delavca(integer, character varying, character varying)
     OWNER TO smqoixml;
 
-Odstranitev Delavca
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Odstranitev Delavca – spremeni delavca nazaj v navadnega uporabnika.
 
 -- FUNCTION: public.odstranidelavca(integer)
 
@@ -609,7 +940,37 @@ $BODY$;
 ALTER FUNCTION public.odstranidelavca(integer)
     OWNER TO smqoixml;
 
-Izpis uporabnikov
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Izpis uporabnikov – izpiše vse uporabnike
 
 -- FUNCTION: public.izpisuporabnika(integer)
 
@@ -633,7 +994,34 @@ $BODY$;
 ALTER FUNCTION public.izpisuporabnika(integer)
     OWNER TO smqoixml;
 
-Izpis delavcev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Izpis delavcev – izpise samo delavce
 
 -- FUNCTION: public.delavciizpis(integer)
 
@@ -658,9 +1046,35 @@ ALTER FUNCTION public.delavciizpis(integer)
     OWNER TO smqoixml;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Triggerji
 
-Arhiviranje Trigger
+Arhiviranje Trigger – trigger ki vnese podatke o lekarni v tabelo arhiv ob vnosu nove lekarne.
 
 -- Trigger: arhiviraj
 
@@ -694,7 +1108,23 @@ ALTER FUNCTION public.arhiv()
     OWNER TO smqoixml;
 
 
-Število Lekarn Trigger
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Število Lekarn Trigger – trigger ki posodablja število lekarn ki se nahaja v dolo?enem kraju
 
 
 -- Trigger: st_lekarn
@@ -706,12 +1136,6 @@ CREATE TRIGGER st_lekarn
     ON public.lekarne
     FOR EACH ROW
     EXECUTE PROCEDURE public.stevilo_lekarn();
-
-
-
-
-
-
 
 
 -- FUNCTION: public.stevilo_lekarn()
@@ -749,7 +1173,9 @@ $BODY$;
 ALTER FUNCTION public.stevilo_lekarn()
     OWNER TO smqoixml;
 
-Število Delavcev Trigger
+
+
+Število Delavcev Trigger – Trigger ki posodablja število delavcev v dolo?eni lekarni
 
 -- Trigger: stetje_delavcev
 
@@ -760,15 +1186,6 @@ CREATE TRIGGER stetje_delavcev
     ON public.uporabniki
     FOR EACH ROW
     EXECUTE PROCEDURE public.st_delavcev();
-
-
-
-
-
-
-
-
-
 
 
 -- FUNCTION: public.st_delavcev()

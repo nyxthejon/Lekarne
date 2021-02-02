@@ -30,9 +30,6 @@
         {
             this.pributton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ogledprofilabutton = new System.Windows.Forms.Button();
-            this.izvozpodatkovbutton = new System.Windows.Forms.Button();
-            this.imeexceltext = new System.Windows.Forms.TextBox();
             this.imelek = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tellek = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dcas = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +38,10 @@
             this.oglej = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.hidden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ogledprofilabutton = new System.Windows.Forms.Button();
+            this.izvozpodatkovbutton = new System.Windows.Forms.Button();
+            this.imeexceltext = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,34 +74,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(743, 493);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // ogledprofilabutton
-            // 
-            this.ogledprofilabutton.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ogledprofilabutton.Location = new System.Drawing.Point(820, 30);
-            this.ogledprofilabutton.Name = "ogledprofilabutton";
-            this.ogledprofilabutton.Size = new System.Drawing.Size(163, 49);
-            this.ogledprofilabutton.TabIndex = 3;
-            this.ogledprofilabutton.Text = "Oglej si profil";
-            this.ogledprofilabutton.UseVisualStyleBackColor = true;
-            this.ogledprofilabutton.Click += new System.EventHandler(this.ogledprofilabutton_Click);
-            // 
-            // izvozpodatkovbutton
-            // 
-            this.izvozpodatkovbutton.Location = new System.Drawing.Point(820, 171);
-            this.izvozpodatkovbutton.Name = "izvozpodatkovbutton";
-            this.izvozpodatkovbutton.Size = new System.Drawing.Size(163, 49);
-            this.izvozpodatkovbutton.TabIndex = 4;
-            this.izvozpodatkovbutton.Text = "Izvoz podatkov";
-            this.izvozpodatkovbutton.UseVisualStyleBackColor = true;
-            this.izvozpodatkovbutton.Click += new System.EventHandler(this.izvozpodatkovbutton_Click);
-            // 
-            // imeexceltext
-            // 
-            this.imeexceltext.Location = new System.Drawing.Point(820, 145);
-            this.imeexceltext.Name = "imeexceltext";
-            this.imeexceltext.Size = new System.Drawing.Size(163, 20);
-            this.imeexceltext.TabIndex = 5;
             // 
             // imelek
             // 
@@ -145,11 +118,49 @@
             this.hidden.Name = "hidden";
             this.hidden.Visible = false;
             // 
+            // ogledprofilabutton
+            // 
+            this.ogledprofilabutton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ogledprofilabutton.Location = new System.Drawing.Point(820, 30);
+            this.ogledprofilabutton.Name = "ogledprofilabutton";
+            this.ogledprofilabutton.Size = new System.Drawing.Size(163, 49);
+            this.ogledprofilabutton.TabIndex = 3;
+            this.ogledprofilabutton.Text = "Oglej si profil";
+            this.ogledprofilabutton.UseVisualStyleBackColor = true;
+            this.ogledprofilabutton.Click += new System.EventHandler(this.ogledprofilabutton_Click);
+            // 
+            // izvozpodatkovbutton
+            // 
+            this.izvozpodatkovbutton.Location = new System.Drawing.Point(820, 171);
+            this.izvozpodatkovbutton.Name = "izvozpodatkovbutton";
+            this.izvozpodatkovbutton.Size = new System.Drawing.Size(163, 49);
+            this.izvozpodatkovbutton.TabIndex = 4;
+            this.izvozpodatkovbutton.Text = "Izvoz podatkov";
+            this.izvozpodatkovbutton.UseVisualStyleBackColor = true;
+            this.izvozpodatkovbutton.Click += new System.EventHandler(this.izvozpodatkovbutton_Click);
+            // 
+            // imeexceltext
+            // 
+            this.imeexceltext.Location = new System.Drawing.Point(820, 145);
+            this.imeexceltext.Name = "imeexceltext";
+            this.imeexceltext.Size = new System.Drawing.Size(163, 20);
+            this.imeexceltext.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(820, 126);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Ime izvožene datoteke";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 580);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.imeexceltext);
             this.Controls.Add(this.izvozpodatkovbutton);
             this.Controls.Add(this.ogledprofilabutton);
@@ -177,6 +188,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn oglej;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn hidden;
+        private System.Windows.Forms.Label label1;
     }
 }
 
