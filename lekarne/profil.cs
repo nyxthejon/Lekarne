@@ -83,7 +83,7 @@ namespace lekarne
 
         private void izblekbutton_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
             updateuporanbik lol = new updateuporanbik(upo);
             lol.Show();
         }
@@ -106,7 +106,8 @@ namespace lekarne
 
         private void kbutton_Click(object sender, EventArgs e)
         {
-            kraji kr = new kraji();
+            kraji kr = new kraji(ajdi);
+            this.Close();
             kr.Show();
         }
 
@@ -129,7 +130,7 @@ namespace lekarne
         private void delavecbutton_Click(object sender, EventArgs e)
         {
             spremembavdelavca delavec = new spremembavdelavca(ajdi);
-            this.Hide();
+            this.Close();
             delavec.Show();
          
 

@@ -28,6 +28,23 @@ namespace lekarne
             id = baza.iduporabnika(upo.email, upo.pass);
         }
 
+
+        public string enkript(string pass)
+        {
+            byte[] geslo = UTF8Encoding.UTF8.GetBytes(pass);
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            {
+                byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                {
+                    ICryptoTransform transform = tripDes.CreateEncryptor();
+                    byte[] results = transform.TransformFinalBlock(geslo, 0, geslo.Length);
+                    string enk = Convert.ToBase64String(results, 0, results.Length);
+                    return enk;
+                }
+            }
+        }
+
         public string dekript(string pass)
         {
             byte[] geslo = Convert.FromBase64String(pass);
@@ -64,10 +81,14 @@ namespace lekarne
         private void button1_Click(object sender, EventArgs e)
         {
             string[] k = krajcombo.SelectedItem.ToString().Split('|');
-            bool ok = baza.updateuser(emailtext.Text, passtext.Text, telefontext.Text, k[0].ToString(), imetext.Text, id);
+            string pass = enkript(passtext.Text);
+            bool ok = baza.updateuser(emailtext.Text, pass, telefontext.Text, k[0].ToString(), imetext.Text, id);
             if(ok == true)
             {
                 MessageBox.Show("Uspešno posodobljen uporabnik");
+                profil profi = new profil(id);
+                profi.Show();
+               
                 this.Close();
             }
             else

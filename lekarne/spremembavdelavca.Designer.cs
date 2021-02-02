@@ -37,6 +37,7 @@
             this.doddelbutton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lekarnecombo = new System.Windows.Forms.ComboBox();
+            this.nazajbutton = new System.Windows.Forms.Button();
             this.prevpanel.SuspendLayout();
             this.dodpanel.SuspendLayout();
             this.SuspendLayout();
@@ -130,11 +131,22 @@
             this.lekarnecombo.Size = new System.Drawing.Size(316, 32);
             this.lekarnecombo.TabIndex = 0;
             // 
+            // nazajbutton
+            // 
+            this.nazajbutton.Location = new System.Drawing.Point(12, 560);
+            this.nazajbutton.Name = "nazajbutton";
+            this.nazajbutton.Size = new System.Drawing.Size(152, 58);
+            this.nazajbutton.TabIndex = 6;
+            this.nazajbutton.Text = "Nazaj";
+            this.nazajbutton.UseVisualStyleBackColor = true;
+            this.nazajbutton.Click += new System.EventHandler(this.nazajbutton_Click);
+            // 
             // spremembavdelavca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 630);
+            this.Controls.Add(this.nazajbutton);
             this.Controls.Add(this.dodpanel);
             this.Controls.Add(this.prevpanel);
             this.Controls.Add(this.label1);
@@ -160,5 +172,6 @@
         private System.Windows.Forms.Button doddelbutton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox lekarnecombo;
+        private System.Windows.Forms.Button nazajbutton;
     }
 }

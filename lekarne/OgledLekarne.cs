@@ -49,6 +49,7 @@ namespace lekarne
 
           
             pictureBox1.Image = Image.FromFile(lek.Pot_slike);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             urlslike = lek.Pot_slike;
             opistext.Text = lek.Opis_slike;
             stdelavcev.Text = lek.Stevilo_Delavcev.ToString();

@@ -13,10 +13,12 @@ namespace lekarne
     public partial class kraji : Form
     {
         string[] sp;
-        public kraji()
+        int idu = 0;
+        public kraji(int id)
         {
             InitializeComponent();
             lol();
+            idu = id;
         }
 
         private void kraji_Load(object sender, EventArgs e)
@@ -96,6 +98,13 @@ namespace lekarne
             baza.deletekraj(sp[0], sp[1]);
             MessageBox.Show("Izbran kraj je bil izbrisan");
             lol();
+        }
+
+        private void nazaj_Click(object sender, EventArgs e)
+        {
+            profil profi = new profil(idu);
+            profi.Show();
+            this.Close();
         }
     }
 }

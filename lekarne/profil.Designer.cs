@@ -290,7 +290,7 @@
             // 
             // odstranidelavcabutton
             // 
-            this.odstranidelavcabutton.Location = new System.Drawing.Point(19, 521);
+            this.odstranidelavcabutton.Location = new System.Drawing.Point(19, 524);
             this.odstranidelavcabutton.Name = "odstranidelavcabutton";
             this.odstranidelavcabutton.Size = new System.Drawing.Size(415, 84);
             this.odstranidelavcabutton.TabIndex = 13;

@@ -54,5 +54,12 @@ namespace lekarne
             this.Close();
 
         }
+
+        private void nazajbutton_Click(object sender, EventArgs e)
+        {
+            profil profi = new profil(ajdi);
+            profi.Show();
+            this.Close();
+        }
     }
 }

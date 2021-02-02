@@ -36,6 +36,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.stlekarnlabel = new System.Windows.Forms.Label();
+            this.nazaj = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // insertkraj
@@ -119,11 +120,22 @@
             this.stlekarnlabel.TabIndex = 15;
             this.stlekarnlabel.Text = "Izberi kraj";
             // 
+            // nazaj
+            // 
+            this.nazaj.Location = new System.Drawing.Point(377, 535);
+            this.nazaj.Name = "nazaj";
+            this.nazaj.Size = new System.Drawing.Size(325, 55);
+            this.nazaj.TabIndex = 16;
+            this.nazaj.Text = "Nazaj";
+            this.nazaj.UseVisualStyleBackColor = true;
+            this.nazaj.Click += new System.EventHandler(this.nazaj_Click);
+            // 
             // kraji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 699);
+            this.ClientSize = new System.Drawing.Size(761, 634);
+            this.Controls.Add(this.nazaj);
             this.Controls.Add(this.stlekarnlabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.insertkraj);
@@ -150,5 +162,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label stlekarnlabel;
+        private System.Windows.Forms.Button nazaj;
     }
 }

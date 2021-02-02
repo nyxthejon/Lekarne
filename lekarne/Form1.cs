@@ -113,7 +113,16 @@ namespace lekarne
             oSheet.get_Range("A1", "F1").Font.Bold = true;
             oSheet.get_Range("A1", "F1").VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
             polnjenjeexcel();
-            oWB.Application.ActiveWorkbook.SaveAs(@"C:\Users\Jon\Desktop\Excel\" + imeexceltext.Text + ".xlsx");
+            try
+            {
+                oWB.Application.ActiveWorkbook.SaveAs(@"C:\Users\Jon\Desktop\Excel\" + imeexceltext.Text + ".xlsx");
+                MessageBox.Show("Uspešno ustvarjena excel datoteka");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         public void polnjenjeexcel()
